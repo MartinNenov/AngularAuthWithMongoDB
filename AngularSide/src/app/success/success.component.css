@@ -1,0 +1,11 @@
+div,button{
+    text-align:center;
+    display: block;
+    margin: auto;
+}
+
+div {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 20px;
+}

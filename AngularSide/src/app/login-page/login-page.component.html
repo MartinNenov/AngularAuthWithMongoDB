@@ -1,0 +1,64 @@
+<div class="login-page">
+    <mat-card class="mat-elevation-z12">
+        <mat-card-title style="text-align:center;">SignIn/SignUp</mat-card-title>
+            <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
+                <mat-tab label="Sign In">
+                    <mat-card-content >
+                        <form [formGroup]="signInForm" (ngSubmit)="signIn(signInForm)">
+                                <mat-form-field appearance="fill">
+                                  <mat-label>Enter your email</mat-label>
+                                  <input matInput placeholder="pat@example.com" [formControl]="loginEmail" required>
+                                    <mat-icon matSuffix>email</mat-icon>
+
+                                  <mat-error *ngIf="loginEmail.invalid">{{getErrorMessage(loginEmail)}}</mat-error>
+                                </mat-form-field>
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Enter your password</mat-label>
+                                    <input matInput placeholder="password" [formControl]="loginPassword" required>
+                                    <mat-icon matSuffix>lock</mat-icon>
+                                    <mat-error *ngIf="loginPassword.invalid">{{getErrorMessage(loginPassword)}}</mat-error>
+                                  </mat-form-field>
+                            <button mat-raised-button color="primary" class="login-button">
+                                Sign In
+                            </button>
+                        </form>
+                        <h4 *ngIf="signInFailed" style="color: #f00;">{{errorMessage}}</h4>
+                    </mat-card-content>
+                </mat-tab>
+                <mat-tab label="Sign Up">
+                    <mat-card-content >
+                        <form [formGroup]="signUpForm" (ngSubmit)="signUp(signUpForm)">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Enter your Username</mat-label>
+                                <input matInput placeholder="username" [formControl]="registerUsername" required>
+                                <mat-icon matSuffix>username</mat-icon>
+                                <mat-error *ngIf="registerUsername.invalid">{{getErrorMessage(registerUsername)}}</mat-error>
+                              </mat-form-field>
+                            <mat-form-field appearance="fill">
+                              <mat-label>Enter your email</mat-label>
+                              <input matInput placeholder="pat@example.com" [formControl]="registerEmail" required>
+                              <mat-icon matSuffix>email</mat-icon>
+                              <mat-error *ngIf="registerEmail.invalid">{{getErrorMessage(registerEmail)}}</mat-error>
+                            </mat-form-field>
+                            <mat-form-field appearance="fill">
+                                <mat-label>Enter your password</mat-label>
+                                <input matInput placeholder="password" [formControl]="registerPassword" required>
+                                <mat-icon matSuffix>lock</mat-icon>
+                                <mat-error *ngIf="registerPassword.invalid">{{getErrorMessage(registerPassword)}}</mat-error>
+                              </mat-form-field>
+                            <mat-form-field appearance="fill">
+                              <mat-label>Reenter your password</mat-label>
+                              <input matInput placeholder="password" [formControl]="registerRePassword" required>
+                              <mat-icon matSuffix>lock</mat-icon>
+                              <mat-error *ngIf="registerRePassword.invalid">{{getErrorMessage(registerRePassword)}}</mat-error>
+                            </mat-form-field>
+                        <button mat-raised-button color="primary" class="login-button">
+                            Sign Up
+                        </button>
+                    </form>
+                        <h4 *ngIf="signInFailed" style="color: #f00;">{{errorMessage}}</h4>
+                    </mat-card-content>
+                </mat-tab>
+            </mat-tab-group>
+    </mat-card>
+</div>
